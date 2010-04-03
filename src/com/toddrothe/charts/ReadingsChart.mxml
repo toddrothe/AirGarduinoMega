@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:LineChart xmlns:mx="http://www.adobe.com/2006/mxml" seriesFilters="[]" mouseDown="test();" >
+	
+	
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.graphics.Stroke;
+			
+			private var strokeAlpha:Number = 0.6;
+			
+			[Bindable] private var moistureBlueStroke1:Stroke = new Stroke(0x2E89FF,2, strokeAlpha);
+			[Bindable] private var moistureBlueStroke2:Stroke = new Stroke(0x6181FF,2, strokeAlpha);
+			[Bindable] private var moistureBlueStroke3:Stroke = new Stroke(0x044F6F,2, strokeAlpha);
+			[Bindable] private var moistureBlueStroke4:Stroke = new Stroke(0x54919E,2, strokeAlpha);
+			[Bindable] private var tempRedStroke:Stroke = new Stroke(0xd43e3e,2, strokeAlpha);
+			[Bindable] private var lightYellowStroke:Stroke = new Stroke(0xfffd79,2, strokeAlpha);
+			
+			private function test():void
+			{
+				trace("test");
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:horizontalAxis>
+		<mx:DateTimeAxis id="timeStamp" dataUnits="seconds" labelUnits="seconds"/> 
+	</mx:horizontalAxis>
+	<mx:horizontalAxisRenderers>
+		<mx:AxisRenderer axis="{timeStamp}" showLabels="true" tickPlacement="none"/>
+	</mx:horizontalAxisRenderers>
+	<mx:verticalAxis>
+		<mx:LinearAxis id="yAxis"/>
+	</mx:verticalAxis>
+	<mx:series>
+		<mx:LineSeries id="moistureLine1" yField="moisture1" xField="date" form="curve" displayName="Moisture1" lineStroke="{moistureBlueStroke1}"/>	
+		<mx:LineSeries id="moistureLine2" yField="moisture2" xField="date" form="curve" displayName="Moisture2" lineStroke="{moistureBlueStroke2}"/>	
+		<mx:LineSeries id="moistureLine3" yField="moisture3" xField="date" form="curve" displayName="Moisture3" lineStroke="{moistureBlueStroke3}"/>	
+		<mx:LineSeries id="moistureLine4" yField="moisture4" xField="date" form="curve" displayName="Moisture4" lineStroke="{moistureBlueStroke4}"/>		
+		<mx:LineSeries id="tempratureLine" yField="temprature" xField="date" form="curve" displayName="Temprature" lineStroke="{tempRedStroke}"/>		
+		<mx:LineSeries id="lightLine" yField="light" xField="date" form="curve" displayName="Light" lineStroke="{lightYellowStroke}"/>
+	</mx:series>	
+	
+</mx:LineChart>
